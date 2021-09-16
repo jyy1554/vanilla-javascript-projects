@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  justify-content: right;
+}
+.footer {
+  height: 70px;
+  background-color: lightgray;
+}
+#footer2-1 {
+  padding: 10px;
+  float: left;
+}
+#footer2-2 {
+  padding: 1px;
+  float: right;
+}
