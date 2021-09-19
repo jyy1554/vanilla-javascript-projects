@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,18 +16,22 @@
   <div class="header">
     <a href="#">Gmail</a>
     <a href="#">이미지</a>
-    <span class="material-icons header-apps">apps</span>
-    <button type="button" class="btn btn-primary btn-sm col-1">로그인</button>
+    <span class="material-icons header-apps" onclick="location.href='#'">apps</span>
+    <button type="button" class="btn btn-primary btn-sm">로그인</button>
   </div>
-  <h1>
-    <b><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></b>
-  </h1>
   <!-- Header Ends -->
-  <form action="https://www.google.com/search" method="GET">
-    <div class="mx-auto mt-5 search-bar input-group mb-3">
-        <input name="q" type="text" class="rounded-pill form-control" placeholder="Google 검색 또는 URL 입력" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    </div>
-  </from>
+
+  <!-- Main Body Starts -->
+  <div class="google-logo">
+    <a href="index.html"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo"></a>
+  </div>
+  <div class="search">
+    <span class="material-icons">search</span>
+    <input type="text" placeholder="Google 검색 또는 URL 입력">
+    <span class="material-icons keyboard-icon" onclick="location.href='#'">keyboard</span>
+    <span class="material-icons mic-icon" onclick="location.href='#'">mic</span>
+  </div>
+  <!-- Main Body Ends -->
 </body>
 </html>
 
