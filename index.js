@@ -17,8 +17,11 @@ $dot1.style.backgroundColor = '#102738'; //첫번째 점 선택
 function changeImage(i) {
   //이전에 선택된 점 해제
   document.querySelector('.dot'+pre_index).style.backgroundColor = '#2973a5';
+  
   index = i;
+  //이전에 선택된 점을 해제하려면 이전 위치값을 가지고 있어야 한다.
   pre_index = index;
+
   //새로 선택된 점 색깔 바꾸기
   document.querySelector('.dot'+index).style.backgroundColor = '#102738';
   $image.src = '/images/image-' + i + '.png';
