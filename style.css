@@ -3,7 +3,9 @@ body {
   height: 100%;
   background-color: #3598dc;
   /* margin 상하 좌우 없도록 */
-  margin: 3rem 0;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .outer-box {
@@ -21,7 +23,6 @@ body {
 
 .arrow-btn {
   display: flex;
-  justify-content: center;
   align-items: center;
 
   background-color: #d0e6f7;
@@ -31,11 +32,14 @@ body {
   border: none;
 
   color: #3598dc;
-  font-family: "Varela Round";
   font-size: 30px;
   font-weight: 900;
 
   cursor: pointer;
+}
+
+.arrow-btn previous {
+  padding-left: 4px;
 }
 
 .image-box {
