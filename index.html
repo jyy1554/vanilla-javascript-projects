@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    >
+    <link
       href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
       rel="stylesheet"
     />
@@ -16,16 +20,14 @@
   <body>
     <!-- Header Starts -->
     <div class="header">
-      <a href="index.html">Baseball Game</a>
-      <button type="button" class="btn btn-secondary btn-lg">
-        Restart
-      </button>
+      <a href="index.html">Let's Play a Baseball Game</a>
     </div>
     <!-- Header Ends -->
     
     <!-- 야구게임 Start -->
     <div class="game">
-      <h1 class="nth">1회</h1>
+      <p class="nth">#1</p>
+
       <div class="score">
         <div class="strike">
           <p>S: </p>
@@ -40,14 +42,21 @@
           <p id="out-score">#</p>
         </div>
       </div>
+      
       <div class="blanks">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
       </div>
-      <button type="button" class="btn btn-primary btn-lg">
-        Enter
-      </button>
+
+      <div class="buttons">
+        <button type="button" class="btn btn-primary btn-lg">
+          Enter
+        </button>
+        <button type="button" class="restart-btn btn btn-secondary btn-lg">
+          Restart
+        </button>
+      </div>
     </div>
     <!-- 야구게임 End -->
 
