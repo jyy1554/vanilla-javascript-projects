@@ -126,8 +126,8 @@ $enter.addEventListener('click', function () {
     resetInput();
   }
   else {
-    score(input);
     $nth.textContent++;
+    score(input);
   }
 
 });
