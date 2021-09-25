@@ -120,7 +120,7 @@ function reset() {
 $enter.addEventListener('click', function () {
   const input = returnInput();
 
-  if ($nth.textContent == 10) fail(); //시도한 횟수가 10을 넘어가면 실패
+  if ($nth.textContent == 11) fail(); //시도한 횟수가 10을 넘어가면 실패
   else if (input.length != 3)  {
     alert("중복되지 않은 숫자 3개를 입력해주세요!");
     resetInput();
