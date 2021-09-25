@@ -46,6 +46,9 @@ p {
   font-size: 60px;
   font-weight: bold;
   text-decoration: underline;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .score {
@@ -65,12 +68,13 @@ p {
 .blanks {
   width: 22vw;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 input {
   height: 100px;
   width: 100px;
+  margin: 0 5px;
 
   background: transparent;
   /* 1px solid 안해주면 input칸에 그림자가 적용됨 */
@@ -82,13 +86,14 @@ input {
 }
 
 .buttons {
-  width: 21vw;
+  width: 400px;
   margin-top: 15px;
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 button {
   width: 130px;
+  margin: 0 5px;
 }

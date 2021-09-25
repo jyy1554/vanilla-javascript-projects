@@ -26,34 +26,38 @@
     
     <!-- 야구게임 Start -->
     <div class="game">
-      <p class="nth">#1</p>
+      <div class="nth">
+        <p>#</p>
+        <p id="nth-num">1</p>
+      </div>
 
       <div class="score">
         <div class="strike">
           <p>S: </p>
-          <p id="strike-score">#</p>
+          <p id="strike-score">0</p>
         </div>
         <div class="ball">
           <p>B: </p>
-          <p id="ball-score">#</p>
+          <p id="ball-score">0</p>
         </div>
         <div class="out">
           <p>O: </p>
-          <p id="out-score">#</p>
+          <p id="out-score">0</p>
         </div>
       </div>
       
       <div class="blanks">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
+        <!-- input에는 숫자가 들어가므로 type을 number로 바꾸어줌 -->
+        <input type="text" id="input1" maxlength="1">
+        <input type="text" id="input2" maxlength="1">
+        <input type="text" id="input3" maxlength="1">
       </div>
 
       <div class="buttons">
-        <button type="button" class="btn btn-primary btn-lg">
+        <button type="submit" class="enter-btn btn btn-primary btn-lg">
           Enter
         </button>
-        <button type="button" class="restart-btn btn btn-secondary btn-lg">
+        <button type="submit" class="restart-btn btn btn-secondary btn-lg">
           Restart
         </button>
       </div>
