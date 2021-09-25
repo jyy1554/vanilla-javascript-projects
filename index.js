@@ -1,5 +1,5 @@
 const $enter = document.querySelector('.enter-btn');
-const $restart = document.querySelector('.restart-btn');
+const $start = document.querySelector('.start-btn');
 
 const $input1 = document.querySelector('#input1');
 const $input2 = document.querySelector('#input2');
@@ -118,13 +118,27 @@ function reset() {
 
 // Enter 버튼
 $enter.addEventListener('click', function () {
-  //시도한 횟수가 10이 넘어가면 실패
-  if (++$nth.textContent == 11) fail();
-
-  //Input에 대한 점수 계산
   const input = returnInput();
-  score(input);
+
+  if ($nth.textContent == 10) fail(); //시도한 횟수가 10을 넘어가면 실패
+  else if (input.length != 3)  {
+    alert("중복되지 않은 숫자 3개를 입력해주세요!");
+    resetInput();
+  }
+  else {
+    score(input);
+    $nth.textContent++;
+  }
+
 });
 
-// Restart 버튼
-$restart.addEventListener('click', reset);
+// Start/Restart 버튼
+$start.addEventListener('click', function () {
+  //Start 버튼 누르면
+  $start.textContent = 'Restart';
+  $start.style.backgroundColor = 'gray';
+  $start.style.border = 'gray';
+
+  //reset 동작
+  reset();
+});
