@@ -25,7 +25,8 @@ function changeImage(i) {
   //새로 선택된 점 색깔 바꾸기
   document.querySelector('.dot'+index).style.backgroundColor = '#102738';
   //깃헙페이지에서 이미지가 보이도록 src에 .을 붙여줌
-  $image.src = './images/image-' + i + '.png';
+  //$image.src = './images/image-' + i + '.png';  //로컬 경로 사용시 요걸 이용하기
+  $image.src = 'https://jyy1554.github.io/carousel/images/image-' + i + '.png';
 };
 
 //좌측 화살표 클릭시 이전 이미지 보여주기
