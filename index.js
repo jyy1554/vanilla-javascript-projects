@@ -74,7 +74,7 @@ function score(input) {
   if(strike == 3) {
     correct();
     //return 함수 써주지 않으면 불필요하게 console.log(strike, ball, out);가 실행됨
-    return;
+    return true;
   }
   $strike.textContent = strike;
 
@@ -89,6 +89,7 @@ function score(input) {
   $out.textContent = out;
 
   console.log(strike, ball, out);
+  return false;
 }
 
 function correct() {
@@ -120,14 +121,19 @@ function reset() {
 $enter.addEventListener('click', function () {
   const input = returnInput();
 
-  if ($nth.textContent == 11) fail(); //시도한 횟수가 10을 넘어가면 실패
+  if ($nth.textContent == 10) {
+    //마지막 시도에 정답일 경우
+    if(score(input)) return;
+    else fail(); //시도한 횟수가 10을 넘어가면 실패
+  }
   else if (input.length != 3)  {
     alert("중복되지 않은 숫자 3개를 입력해주세요!");
     resetInput();
   }
   else {
-    $nth.textContent++;
+    ++$nth.textContent;
     score(input);
+    console.log($nth.textContent);
   }
 
 });
