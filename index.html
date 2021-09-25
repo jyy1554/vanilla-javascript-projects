@@ -4,29 +4,52 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link
-      href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="/images/favicon.ico" />
+    <!-- Bootstrap 사용하기 위해 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>Baseball Project</title>
+    <title>Baseball Game</title>
   </head>
 
   <body>
-    <section>
-      <div class="image-box">
-        <img src="images/vanilla_coding_logo.png" />
+    <!-- Header Starts -->
+    <div class="header">
+      <a href="index.html">Baseball Game</a>
+      <button type="button" class="btn btn-secondary btn-lg">
+        Restart
+      </button>
+    </div>
+    <!-- Header Ends -->
+    
+    <!-- 야구게임 Start -->
+    <div class="game">
+      <h1 class="nth">1회</h1>
+      <div class="score">
+        <div class="strike">
+          <p>S: </p>
+          <p id="strike-score">#</p>
+        </div>
+        <div class="ball">
+          <p>B: </p>
+          <p id="ball-score">#</p>
+        </div>
+        <div class="out">
+          <p>O: </p>
+          <p id="out-score">#</p>
+        </div>
       </div>
-      <h1>Baseball</h1>
-
-      <!-- 야구게임 Start -->
-
-      <!-- 야구게임 End -->
-    </section>
+      <div class="blanks">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+      </div>
+      <button type="button" class="btn btn-primary btn-lg">
+        Enter
+      </button>
+    </div>
+    <!-- 야구게임 End -->
 
     <script src="index.js"></script>
   </body>
