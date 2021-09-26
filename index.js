@@ -1,6 +1,7 @@
 const $enter = document.querySelector('.enter-btn');
-const $start = document.querySelector('.start-btn');
+const $restart = document.querySelector('.restart-btn');
 
+const $inputs = document.querySelector('.blanks');
 const $input1 = document.querySelector('#input1');
 const $input2 = document.querySelector('#input2');
 const $input3 = document.querySelector('#input3');
@@ -14,7 +15,8 @@ const $nth = document.querySelector('#nth-num');
 //random number가 생성될때마다 매번 바뀌어야하고 원시값이 할당되므로 let키워드로 선언
 let randomNum = '';
 
-
+//index.html 파일이 열리면 초기화 reset 실행
+window.onload = reset();
 
 
 /**** 초기 셋팅  함수 ****/
@@ -146,13 +148,5 @@ $enter.addEventListener('click', function () {
   }
 });
 
-// Start/Restart 버튼
-$start.addEventListener('click', function () {
-  //Start 버튼 누르면 Restart 버튼으로 바꾸기
-  $start.textContent = 'Restart';
-  $start.style.backgroundColor = 'gray';
-  $start.style.border = 'gray';
-
-  //reset 동작
-  reset();
-});
+// Restart 버튼
+$restart.addEventListener('click', reset);
