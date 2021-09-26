@@ -102,3 +102,13 @@ $before.addEventListener('click', function () {
 
   console.log("before");
 });
+
+$after.addEventListener('click', function () {
+  month++;
+  //이거 찾느라 고생했네....
+  $tbody.querySelectorAll('tr').forEach(function(e){e.remove()});
+  returnDayAndDates(year, month);
+  changeName(year, month, 1, day);
+
+  console.log("after");
+});
