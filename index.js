@@ -3,11 +3,10 @@ const $day = document.querySelector('.day');
 const $date = document.querySelector('.date');
 const $month = document.querySelector('.month');
 const $year = document.querySelector('.year');
+const $before = document.querySelector('.before');
+const $after = document.querySelector('.after');
+const $tbody = document.querySelector('.calendar');
 
-// 테이블 바디를 추가하기 위한 사전 작업
-let $table = document.querySelector('.calendar');
-let $tbody = document.createElement('tbody');
-$table.appendChild($tbody);
 
 // 날짜 계산 또는 달력 표현에 필요한 변수들
 const today = new Date();
@@ -15,11 +14,11 @@ const dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 const oneDayMiliSec = new Date(2021,10,2) - new Date(2021,10,1);
 
-// 오늘 년/월/일/요일을 변수로 할당
-const year = today.getFullYear();
-const month = today.getMonth(); // 0:1월, 1월: 2월 ...
-const date = today.getDate();
-const day = today.getDay(); //0:일요일, 1:월요일, 2:화요일 ...
+// 오늘 년/월/일/요일을 변수로 할당하였으며 변경될 수 있으므로 let 키워드로 선언
+let year = today.getFullYear();
+let month = today.getMonth(); // 0:1월, 1월: 2월 ...
+let date = today.getDate();
+let day = today.getDay(); //0:일요일, 1:월요일, 2:화요일 ...
 
 
 
@@ -58,6 +57,8 @@ function returnDayAndDates(yr, mon) { //1일이 무슨 요일인지, 해당월�
 /**** 배열 생성 함수 ****/
 function returnArray(start, total) {
   const arr = [];
+  //1일 표시하기 위해
+  day = start;
   for (let i=0; i < start; i++) arr.push('');
   for (let i=0; i < total; i++) arr.push(i+1);
 
@@ -84,11 +85,20 @@ function drawCalendar(arr) { // 배열
     $tr.appendChild($td);
   });
 
-  // $tr_1 노드를 $tbody 노드의 자식 노드로 추가
+  // $tr 노드를 $tbody 노드의 자식 노드로 추가
   $tbody.appendChild($tr);
 }
 
 
 
 
+/**** 화살표 함수 ****/
+$before.addEventListener('click', function () {
+  month--;
+  //이거 찾느라 고생했네....
+  $tbody.querySelectorAll('tr').forEach(function(e){e.remove()});
+  returnDayAndDates(year, month);
+  changeName(year, month, 1, day);
 
+  console.log("before");
+});
