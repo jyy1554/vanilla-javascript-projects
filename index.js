@@ -46,7 +46,6 @@ function generateRandomNum() {
 function returnInput() {
   const inputNum = $input1.value + $input2.value + $input3.value;
 
-  console.log("Input Number: " + inputNum);
   return inputNum;
 }
 
@@ -58,47 +57,58 @@ function resetInput() {
   $input3.value = '';
 }
 
+// 올바른 input을 넣었는지 확인하는 함수
+function isValidate(input) {
+  if (isNaN(input * 1) || input[0] == input[1] || input[0] == input[2]) {
+    //숫자가 아닌 문자를 입력하거나 중복된 숫자를 입력한 경우
+    //input*1은 Number타입으로 바꿔주기 위해. NaN === NaN은 false
+    alert("1에서 9 사이의 중복되지 않은 숫자를 넣어주세요.");
+    resetInput();
+    return false;
+  }
+  else if (input.length != 3)  {
+    //숫자를 3개를 입력하지 않았을 경우
+    alert("중복되지 않은 숫자 3개를 입력해주세요.");
+    resetInput();
+    return false;
+  }
+  else return true;
+}
+
 
 
 /**** 문제풀이 관련 함수 ****/
 
 // 점수 계산하는 함수
 function score(input) {
-  let strike = 0;
-  let ball = 0;
-  let out = 0;
-
   // strike 계산 : 자리와 숫자가 같은 경우
-  strike = (input[0] == randomNum[0]) + (input[1] == randomNum[1]) + (input[2] == randomNum[2]);
-  // 정답!
-  if(strike == 3) {
-    correct();
-    //return 함수 써주지 않으면 불필요하게 console.log(strike, ball, out);가 실행됨
-    return true;
-  }
-  $strike.textContent = strike;
+  const strike = (input[0] == randomNum[0]) + (input[1] == randomNum[1]) + (input[2] == randomNum[2]);
 
   // ball 계산 : 자리는 다르나 숫자가 같은 경우
-  ball = (input[0] == randomNum[1]) + (input[0] == randomNum[2])
+  const ball = (input[0] == randomNum[1]) + (input[0] == randomNum[2])
                      + (input[1] == randomNum[0]) + (input[1] == randomNum[2])
                      + (input[2] == randomNum[0]) + (input[2] == randomNum[1]);
-  $ball.textContent = ball;
 
-  // Out
-  if(strike + ball == 0) out++;
+  // Out 계산 : strike와 ball이 둘다 0이면 out은 1. boolean값을 숫자로 만들어주기 위해 곱하기 1해줌
+  const out = !(strike + ball) * 1;
+
+  $strike.textContent = strike;
+  $ball.textContent = ball;
   $out.textContent = out;
 
   console.log(strike, ball, out);
-  return false;
+  return strike;  //정답인 경우는 strike가 3인 경우이므로 strike 값만 돌려주면 됨
 }
 
 function correct() {
   alert("Correct!");
+  console.log("correct");
   reset();
 }
 
 function fail() {
   alert("Fail!");
+  console.log("fail");
   reset();
 }
 
@@ -121,26 +131,24 @@ function reset() {
 $enter.addEventListener('click', function () {
   const input = returnInput();
 
-  if ($nth.textContent == 10) {
-    //마지막 시도에 정답일 경우
-    if(score(input)) return;
-    else fail(); //시도한 횟수가 10을 넘어가면 실패
-  }
-  else if (input.length != 3)  {
-    alert("중복되지 않은 숫자 3개를 입력해주세요!");
-    resetInput();
-  }
-  else {
-    ++$nth.textContent;
-    score(input);
-    console.log($nth.textContent);
-  }
+  if(isValidate(input)) {
+    //플레이어가 올바른 값을 입력한 경우
 
+    if ($nth.textContent == 10) {
+      //마지막 시도에서 정답일 경우
+      if(score(input) == 3) correct();
+      else fail();
+    }
+    else {
+      $nth.textContent++;
+      if(score(input) == 3) correct();
+    }
+  }
 });
 
 // Start/Restart 버튼
 $start.addEventListener('click', function () {
-  //Start 버튼 누르면
+  //Start 버튼 누르면 Restart 버튼으로 바꾸기
   $start.textContent = 'Restart';
   $start.style.backgroundColor = 'gray';
   $start.style.border = 'gray';

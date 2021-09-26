@@ -20,15 +20,15 @@
   <body>
     <!-- Header Starts -->
     <div class="header">
-      <a href="index.html">Let's Play a Baseball Game</a>
+      <a href="index.html">Let's play a Baseball Game!</a>
     </div>
     <!-- Header Ends -->
-    
+
     <!-- 야구게임 Start -->
     <div class="game">
       <div class="nth">
-        <p>#</p>
-        <p id="nth-num">1</p>
+        <!-- 텍스트 중간에 변하는 숫자가 있는 경우 -->
+        <p><span id="nth-num">1</span> of 10</p>
       </div>
 
       <div class="score">
@@ -45,7 +45,7 @@
           <p id="out-score">0</p>
         </div>
       </div>
-      
+
       <div class="blanks">
         <!-- input에는 숫자가 들어가므로 type을 number로 바꾸어줌 -->
         <input type="text" id="input1" maxlength="1">
