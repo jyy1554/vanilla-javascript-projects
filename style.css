@@ -1,59 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-image: url("./images/bg.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Varela Round", sans-serif;
+  text-align: center;
 
   /* 전체 화면 크기를 정해주기 위해 */
   height: 100vh;
-  margin: 0;
 }
 
-h1 {
+a {
   font-family: "Pacifico", cursive;
   font-size: 72px;
-  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
 
-  margin: 0;
-  padding-top: 90px;
-  padding-bottom: 25px;
+  padding-top: 85px;
+  padding-bottom: 30px;
 }
 
 h2 {
   margin: 20px auto;
-
   font-size: 48px;
-  text-align: center;
-}
-
-.calendar-name {
-  text-align: center;
-  margin-top: 47px;
-}
-
-.calendar-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 35px auto;
-}
-
-.box {
-  height: 30vh;
-  width: 30vw;
-  text-align: center;
-  font-size: 16px;
-}
-
-.arrow {
-  cursor: pointer;
 }
 
 span {
   font-size: 24px;
 }
 
+.calendar-name {
+  margin-top: 47px;
+}
+
+.calendar-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 35px auto;
+  height: 25vh;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
 .calendar {
+  font-size: 16px;
   font-weight: bold;
 }
