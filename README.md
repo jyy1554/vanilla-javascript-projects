@@ -1,5 +1,7 @@
 # baseball-game
 
+<a href="https://jyy1554.github.io/baseball-game/first-page.html">결과물 바로가기</a>
+
 필자가 정한 규칙은 다음과 같다.
 
 1. 입력은 1~9 사이의 숫자만 받는다.
