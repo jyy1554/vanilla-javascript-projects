@@ -3,10 +3,57 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Varela Round", sans-serif;
+
+  /* 전체 화면 크기를 정해주기 위해 */
+  height: 100vh;
+  margin: 0;
 }
 
 h1 {
   font-family: "Pacifico", cursive;
-  text-align: center;
   font-size: 72px;
+  text-align: center;
+
+  margin: 0;
+  padding-top: 90px;
+  padding-bottom: 25px;
+}
+
+h2 {
+  margin: 20px auto;
+
+  font-size: 48px;
+  text-align: center;
+}
+
+.calendar-name {
+  text-align: center;
+  margin-top: 47px;
+}
+
+.calendar-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 35px auto;
+}
+
+.box {
+  height: 30vh;
+  width: 30vw;
+  text-align: center;
+  font-size: 16px;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+span {
+  font-size: 24px;
+}
+
+.calendar {
+  font-weight: bold;
 }
