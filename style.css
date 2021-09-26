@@ -44,17 +44,28 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin: 35px auto;
+  align-items: flex-start;
+  margin: 33px auto;
   height: 25vh;
 }
 
 .arrow {
   cursor: pointer;
-  margin: 0 20px;
+  margin: 64px 20px;
+  font-size: 19px;
+  color: darkgray;
+}
+
+thead {
+  height: 25px;
+}
+
+tbody {
+  height: 17vh;
 }
 
 th {
   font-size: 16px;
   font-weight: bold;
+  align-items: flex-start;
 }
