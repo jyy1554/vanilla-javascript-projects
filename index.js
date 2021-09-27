@@ -44,7 +44,7 @@ function changeName(yr, mon, dt, d) { //연도, 월, 일, 요일
 
 /********************************************/
 /************ 달력 출력 과정 시작 ************/
-// 0. (화살표 버튼 클릭 시에만 실행됨) currentMonth값이 유효한지 확인하고 아래 단계들을 거친다.
+// 0. (화살표 버튼 클릭 시에만 실행됨) calendar가 있던 자리를 비우고 아래 단계들을 거친다.
 // 1. 해당연도와 월을 인수로 받아 1일이 무슨 요일인지, 총 일수를 계산한다.
 // 2. 1번 함수에서 요일과 총 일수를 받아 배열로 나타내고,
 //    배열을 길이 7로 잘라 테이블 생성함수에 넘겨준다.
@@ -52,15 +52,10 @@ function changeName(yr, mon, dt, d) { //연도, 월, 일, 요일
 
 
 
-/**** 0. 달력 생성 함수 ****/
-function newCalendar() {
+/**** 0. 달력 비우는 함수 ****/
+function emptyCalendar() {
   // 달력을 새로 만들기 위해, tbody 자식노드들인 tr 모두 제거
   $tbody.querySelectorAll('tr').forEach(function(e){e.remove()});
-
-  if(year == currentYear && month == currentMonth) changeName(currentYear, currentMonth, date, day);
-  else changeName(currentYear, currentMonth, 1, currentDay);
-
-  returnDayAndDates(currentYear, currentMonth);
 }
 
 
@@ -96,7 +91,11 @@ function returnArray(start, total) {
 
 
 /**** 3. 달력 표현 함수 ****/
-function drawCalendar(arr) { // 배열
+function drawCalendar(arr) {
+  //달력 위 텍스트 표현. 오늘 연도와 월일 경우, 오늘 날짜와 요일을 표시하고 그 외에는 1일과 해당 요일을 표시
+  if(year == currentYear && month == currentMonth) changeName(currentYear, currentMonth, date, day);
+  else changeName(currentYear, currentMonth, 1, currentDay);
+
   let $tr = document.createElement('tr');
 
   arr.forEach(date => {
@@ -127,7 +126,8 @@ $before.addEventListener('click', function () {
     currentYear--;
     currentMonth = 11;
   }
-  newCalendar();
+  emptyCalendar();
+  returnDayAndDates(currentYear, currentMonth);
 });
 
 $after.addEventListener('click', function () {
@@ -136,5 +136,6 @@ $after.addEventListener('click', function () {
     currentYear++;
     currentMonth = 0;
   }
-  newCalendar();
+  emptyCalendar();
+  returnDayAndDates(currentYear, currentMonth);
 });
