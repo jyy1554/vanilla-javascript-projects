@@ -12,7 +12,6 @@
 */
 
 const buttonElement = document.querySelector("button");
-const spanElement = document.querySelector("span");
 const spanAllElement = document.querySelectorAll(".lightOn");
 
 for (const sp of spanAllElement) {
