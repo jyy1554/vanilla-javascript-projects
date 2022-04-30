@@ -1,11 +1,14 @@
 body {
+    margin: 0;
+    padding: 0;
     height: 100%;
-    text-align: center;
+
     background-color: #202124;
+    color: #bdc1c6;
 }
 
-a {
-    color: #bdc1c6;
+.body-wrapper {
+    min-height: 100%;
 }
 
 nav {
@@ -13,30 +16,42 @@ nav {
 
     justify-content: space-between;
     align-items: center;
-    margin-top: 23px;
-    font-size: 15px;
+    padding: 15px 10px;
+    font-size: 14px;
 }
 
-nav > .nav-left {
+.nav-left {
     margin-left: 20px;
 }
 
-nav > .nav-right {
+.nav-right {
     margin-right: 20px;
+
+    display: flex;
+    align-items: center;
 }
 
 .nav-left > a {
     margin-right: 15px;
 }
 
-.nav-right > a {
-    margin-left: 15px;
+.nav-right > * {
+    margin-left: 19px;
     color: white;
 }
 
+.my-profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    line-height: 32px;
+    background-color: #bf360d;
+    text-align: center;
+}
+
 section {
-    margin-top: 135px;
-    height: 200px;
+    padding-top: 135px;
+    height: 280px;
 
     display: flex;
     flex-direction: column;
@@ -44,17 +59,77 @@ section {
     align-items: center;
 }
 
-section > .google-logo {
-    width: 300px;
+.google-logo {
+    width: 270px;
 }
 
-section > .search {
+.search {
     height: 40px;
     width: 600px;
-    border-radius: 20px;
+    border-radius: 40px;
     border: 1px solid #5f6368;
     background-color: #202124;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+}
+
+.search > input {
+    width: 500px;
+    height: 40px;
+    background-color: #202124;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    color: white;
+}
+
+.buttons > button {
+    background-color: #303134;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    height: 36px;
+    padding: 0 15px;
+    margin: 0 4px;
+}
+
+.service-text {
+    font-size: 14px;
+}
+
+.service-text > .language {
+    color: #8ab4f8;
+}
+
+footer {
+    background-color: #171717;
+    color: #9aa0a6;
+    font-size: 14px;
+
+    height: 95px;
+    position: relative;
+    transform: translateY(-100%);
+}
+
+.ft-item {
+    padding: 15px 30px;
+    border-top: 1px solid #202124;
+}
+
+.company-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ft-left > a {
+    margin-right: 20px;
+}
+
+.ft-right > a {
+    margin-left: 20px;
 }
