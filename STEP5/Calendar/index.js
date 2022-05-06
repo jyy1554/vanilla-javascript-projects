@@ -51,7 +51,6 @@ const showDate = (month) => {
 //해당 월의 1일이 무슨 요일인지 알려주는 함수
 const getFirstDay = (year, month) => {
     const date = new Date(year, month, 1);
-    console.log(date);
 
     return date.getDay();
 };
