@@ -3,13 +3,6 @@ const thisYear = today.getFullYear();
 const thisMonth = today.getMonth();
 const thisDate = today.getDate();
 const thisDay = today.getDay(); //요일: 0-월, 1-화, ...
-
-const $day = document.querySelector(".cal-day");
-const $date = document.querySelector(".cal-date");
-const $month = document.querySelector(".cal-month");
-const $year = document.querySelector(".cal-year");
-const $ths = document.querySelectorAll("tbody > tr > th");
-
 const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const months = [
     "JAN",
@@ -26,10 +19,27 @@ const months = [
     "DEC",
 ];
 
-const showDay = (day) => {
-    $day.textContent = days[day];
+const $day = document.querySelector(".cal-day");
+const $date = document.querySelector(".cal-date");
+const $month = document.querySelector(".cal-month");
+const $year = document.querySelector(".cal-year");
+const $ths = document.querySelectorAll("tbody > tr > th");
+const $leftArrow = document.querySelector(".left-arrow");
+const $rightArrow = document.querySelector(".right-arrow");
+
+let year = thisYear; //year 변수 초기값
+let month = thisMonth; //month 변수 초기값
+
+//달력 위에 요일을 보여주는 함수
+const showDay = (year, month, firstDay) => {
+    if (year === thisYear && month === thisMonth) {
+        $day.textContent = days[thisDay];
+    } else {
+        $day.textContent = days[firstDay];
+    }
 };
 
+//달력 위에 날짜를 보여주는 함수
 const showDate = (month) => {
     if (thisMonth === month) {
         $date.textContent = thisDate;
@@ -53,21 +63,55 @@ const getLastDate = (year, month) => {
     return date.getDate();
 };
 
+//달력을 만들어주는 함수
 const showCalendar = (year, month) => {
-    const ths = [...$ths];
+    const ths = [...$ths]; //배열로 변환
     const firstDay = getFirstDay(year, month);
     const lastDate = getLastDate(year, month);
+    let d = 1; //달력에 들어갈 날짜 변수
 
-    console.log(firstDay + " " + lastDate);
-
-    for (let i = firstDay, j = 1; i < lastDate; i++, j++) {
-        ths[i].textContent = j;
+    for (let i = 0; i < ths.length; i++) {
+        //1일은 특정 요일에 시작함
+        if (i >= firstDay && d <= lastDate) {
+            ths[i].textContent = d;
+            d++;
+        } else {
+            ths[i].textContent = "";
+        }
     }
 
     $year.textContent = year;
     $month.textContent = months[month];
+    showDate(month);
+    showDay(year, month, firstDay);
 };
 
-showDay(thisDay);
-showDate(thisMonth);
+//왼쪽 화살표를 눌렀을 때 동작하는 함수
+const clickLeft = () => {
+    if (month <= 0) {
+        year--;
+        month = 11;
+    } else {
+        month--;
+    }
+
+    showCalendar(year, month);
+};
+
+//오른쪽 화살표를 눌렀을 때 동작하는 함수
+const clickRight = () => {
+    if (month >= 11) {
+        year++;
+        month = 0;
+    } else {
+        month++;
+    }
+
+    showCalendar(year, month);
+};
+
+//첫 실행 시 실행되는 함수
 showCalendar(thisYear, thisMonth);
+
+$leftArrow.addEventListener("click", clickLeft);
+$rightArrow.addEventListener("click", clickRight);
