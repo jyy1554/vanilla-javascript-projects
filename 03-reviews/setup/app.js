@@ -30,56 +30,60 @@ const reviews = [
   },
 ];
 
-const image = document.getElementById('person-img');
+// select items
+const img = document.getElementById('person-img');
 const author = document.getElementById('author');
 const job = document.getElementById('job');
 const info = document.getElementById('info');
-
 
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 const randomBtn = document.querySelector('.random-btn');
 
-// 아이템 번호
-let itemNum = 0;
+// set starting item
+let currentItem = 0;
+// let itemNum = 0;
 
-// 특정 숫자에서 보여주는 함수
-function showPerson(itemNum) {
-  const item = reviews[itemNum];
+// load initial item
+window.addEventListener('DOMContentLoaded', () => {
+  showPerson();
+});
 
-  image.src = item.img;
+// show person based on item
+function showPerson() {
+  const item = reviews[currentItem];
+
+  img.src = item.img;
   author.textContent = item.name;
   job.textContent = item.job;
   info.textContent = item.text;
 }
 
-// init
-showPerson(0);
-
-// prev, next 버튼 누를 시 동작
+// show prev person
 prevBtn.addEventListener('click', () => {
-  itemNum--;
+  currentItem--;
 
-  if (itemNum < 0) {
-    itemNum = reviews.length -1;
+  if (currentItem < 0) {
+    currentItem = reviews.length -1;
   }
 
-  showPerson(itemNum);
+  showPerson();
 });
 
+// show next person
 nextBtn.addEventListener('click', () => {
-  itemNum++;
+  currentItem++;
 
-  if (itemNum > reviews.length - 1) {
-    itemNum = 0;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
   }
 
-  showPerson(itemNum);
+  showPerson();
 });
 
-// 랜덤 숫자
+// show random person
 randomBtn.addEventListener('click', () => {
-  itemNum = Math.floor(Math.random() * reviews.length);
+  currentItem = Math.floor(Math.random() * reviews.length);
 
-  showPerson(itemNum);
+  showPerson();
 });
