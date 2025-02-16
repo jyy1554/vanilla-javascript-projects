@@ -29,7 +29,6 @@ const reviews = [
     text: 'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
   },
 ];
-
 // select items
 const img = document.getElementById('person-img');
 const author = document.getElementById('author');
@@ -42,48 +41,44 @@ const randomBtn = document.querySelector('.random-btn');
 
 // set starting item
 let currentItem = 0;
-// let itemNum = 0;
 
 // load initial item
-window.addEventListener('DOMContentLoaded', () => {
-  showPerson();
+window.addEventListener('DOMContentLoaded', function () {
+  const item = reviews[currentItem];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
 });
 
 // show person based on item
-function showPerson() {
-  const item = reviews[currentItem];
-
+function showPerson(person) {
+  const item = reviews[person];
   img.src = item.img;
   author.textContent = item.name;
   job.textContent = item.job;
   info.textContent = item.text;
 }
-
-// show prev person
-prevBtn.addEventListener('click', () => {
-  currentItem--;
-
-  if (currentItem < 0) {
-    currentItem = reviews.length -1;
-  }
-
-  showPerson();
-});
-
 // show next person
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener('click', function () {
   currentItem++;
-
   if (currentItem > reviews.length - 1) {
     currentItem = 0;
   }
-
-  showPerson();
+  showPerson(currentItem);
 });
-
+// show prev person
+prevBtn.addEventListener('click', function () {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
+});
 // show random person
-randomBtn.addEventListener('click', () => {
-  currentItem = Math.floor(Math.random() * reviews.length);
+randomBtn.addEventListener('click', function () {
+  console.log('hello');
 
-  showPerson();
+  currentItem = Math.floor(Math.random() * reviews.length);
+  showPerson(currentItem);
 });
