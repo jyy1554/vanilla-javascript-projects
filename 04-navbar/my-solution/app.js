@@ -4,15 +4,21 @@
 // remove - remove class
 // toggle - toggles class
 
-const navButton = document.querySelector('.nav-toggle');
-const menuWindow = document.querySelector('.links');
+const navToggle = document.querySelector('.nav-toggle');
+// const navButton = document.querySelector('.nav-toggle');
+const links = document.querySelector('.links');
+// const menuWindow = document.querySelector('.links');
 
-navButton.addEventListener('click', () => {
+navToggle.addEventListener('click', () => {
 
-    if(navButton.classList.toggle('c')) {
-        menuWindow.classList.add('show-links');
-    } else {
-        menuWindow.classList.remove('show-links');
-    }
-    
+    console.log(links.classList); // DOMTokenList ['links', value: 'links']
+    console.log(links.classList.contains('random')); // false
+
+    // if(links.classList.contains('show-links')) {
+    //     links.classList.remove('show-links');
+    // } else {
+    //     links.classList.add('show-links');
+    // }
+
+    links.classList.toggle('show-links');    
 });
