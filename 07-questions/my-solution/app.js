@@ -1,44 +1,36 @@
-//using selectors inside the element
-// traversing the dom
-const questons = document.querySelectorAll('.question');
-const questionBtns = document.querySelectorAll('.question-btn');
+/**
+ * using selectors inside the element
+ */
+const questions = document.querySelectorAll('.question');
 
-console.log(questionBtns);
+questions.forEach((question) => {
+    const btn = question.querySelector('.question-btn');
+    // console.log(btn);
 
-// questionBtns[0].addEventListener('click', () => {
-//     console.log('click1');
-
-//     questons[0].classList.toggle('show-text');
-//     questons[1].classList.remove('show-text');
-//     questons[2].classList.remove('show-text');
-// });
-
-// questionBtns[1].addEventListener('click', () => {
-//     console.log('click2');
-
-//     questons[0].classList.remove('show-text');
-//     questons[1].classList.toggle('show-text');
-//     questons[2].classList.remove('show-text');
-// });
-
-// questionBtns[2].addEventListener('click', () => {
-//     console.log('click3');
-
-//     questons[0].classList.remove('show-text');
-//     questons[1].classList.remove('show-text');
-//     questons[2].classList.toggle('show-text');
-// });
-
-for (let i = 0; i < 3; i++) {
-    questons[i].addEventListener('click', () => {
-        console.log(`click ${i + 1}`);
-
-        for (let j = 0; j < 3; j++) {
-            if (j == i) {
-                questons[j].classList.toggle('show-text');
-            } else {
-                questons[j].classList.remove('show-text');
+    btn.addEventListener('click', () => {
+        questions.forEach((item) => {   // 괄호 안에 question이라고 쓰면 안됨. 위와 중복됨
+            if (item !== question) {
+                item.classList.remove('show-text');
             }
-        }
+        });
+        
+        question.classList.toggle('show-text');
     });
-}
+});
+
+
+/**
+ * traversing the dom
+ */
+// const btns = document.querySelectorAll('.question-btn');
+
+// console.log(btns);
+
+// btns.forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//         console.log(e.currentTarget.parentElement.parentElement);
+        
+//         const question = e.currentTarget.parentElement.parentElement;
+//         question.classList.toggle('show-text');
+//     });
+// })
