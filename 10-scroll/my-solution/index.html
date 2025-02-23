@@ -12,18 +12,18 @@
 </head>
 
 <body>
-  <header>
+  <!-- header -->
+  <header id="home">
     <!-- navbar -->
-    <nav class="nav">
-      <div class="nav-header">
-        <!-- logo -->
-        <div class="logo">
-          <img src="./logo.svg" class="logo" alt="logo" />
+    <nav id="nav">
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <img src="./logo.svg" alt="logo" class="logo" />
+          <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
-        <!-- menu button -->
-        <button class="nav-toggle" type="button">
-          <i class="fas fa-bars"></i>
-        </button>
         <!-- links -->
         <div class="links-container">
           <ul class="links">
@@ -48,46 +48,43 @@
       <div class="container">
         <h1>scroll project</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas eos neque sunt in? Id, necessitatibus quos
-          quisquam distinctio laudantium fugiat?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, impedit? Laudantium error perferendis iste
+          cum quisquam sequi ratione mollitia maiores?
         </p>
-        <button class="btn" type="button">
+        <a href="#tours" class="scroll-link btn btn-white">
           explorer tours
-        </button>
+        </a>
       </div>
     </div>
   </header>
-  <!-- section -->
-  <section id="about">
+  <!-- about -->
+  <section id="about" class="section">
     <div class="title">
       <h2>about <span>us</span></h2>
     </div>
   </section>
-  <!-- end of section -->
-  <!-- section -->
-  <section id="services">
+  <!-- services -->
+  <section id="services" class="section">
     <div class="title">
       <h2>our <span>services</span></h2>
     </div>
   </section>
-  <!-- end of section -->
-  <!-- section -->
-  <section id="tours">
+  <!-- tours -->
+  <section id="tours" class="section">
     <div class="title">
       <h2>featured <span>tours</span></h2>
     </div>
   </section>
-  <!-- end of section -->
   <!-- footer -->
-  <footer>
+  <footer class="section">
     <p>
-      copyright © backroads travel tours company 2025. all rights reserved
+      copyright &copy; backroads travel tours company <span id="date"></span>. all rights reserved
     </p>
   </footer>
-  <!-- top link -->
-  <div class="top-link">
+  <!-- back to top button -->
+  <a href="#home" class="scroll-link top-link">
     <i class="fas fa-arrow-up"></i>
-  </div>
+  </a>
   <!-- javascript -->
   <script src="app.js"></script>
 </body>
