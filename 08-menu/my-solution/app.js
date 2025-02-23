@@ -86,72 +86,13 @@ const menu = [
   },
 ];
 
-const categories = [];
-
-menu.forEach((item) => {
-  if(!categories.includes(item.category)) {
-    categories.push(item.category);
-  }
-});
-
-// console.log(categories);
-
-const btnContainer = document.querySelector('.btn-container');
-let btns = [];
-
-// categories.forEach((item) => {
-//   btns.push(`
-//     <button class="filter-btn" type="button" data-id=${item}>
-//         ${item}
-//     </button>
-//     `);
-// });
-
-for (let i = 0; i < categories.length + 1; i++) {
-  let cat = '';
-
-  if (i == 0) {
-    cat = 'all';
-  } else {
-    cat = categories[i-1];
-  }
-
-  btns.push(`
-    <button class="filter-btn" type="button" data-id=${cat}>
-        ${cat}
-    </button>
-    `);
-}
-
-btns = btns.join('');
-btnContainer.innerHTML = btns;
-
 const sectionCenter = document.querySelector('.section-center');
-const filterBtns = document.querySelectorAll('.filter-btn');
+const container = document.querySelector('.btn-container');
 
 // load items
 window.addEventListener('DOMContentLoaded', () => {
   displayMenuItems(menu);
-});
-
-// filter items
-filterBtns.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    // console.log(e.currentTarget.dataset.id); // target의 텍스트가 변경될 수 있으므로, dataset을 이용하는 것이 좋다.
-
-    const category = e.currentTarget.dataset.id;
-    const menuCategory = menu.filter((menuItem) => {
-      if (menuItem.category === category) {
-        return menuItem;
-      }
-    });
-
-    if (category === 'all') {
-      displayMenuItems(menu);
-    } else {
-      displayMenuItems(menuCategory);
-    }
-  });
+  displayMenuButtons();
 });
 
 function displayMenuItems(menuItems) {
@@ -175,4 +116,46 @@ function displayMenuItems(menuItems) {
 
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
+}
+
+function displayMenuButtons() {
+  const categories = menu.reduce((values, item) => {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+
+    return values;
+  }, ['all']);
+  // console.log(categories);
+
+  const categoryBtns = categories.map((catergory) => {
+    return `<button class="filter-btn" type="button" data-id=${catergory}>
+        ${catergory}
+      </button>`;
+  }).join('');
+  // console.log(categoryBtns);
+
+  container.innerHTML = categoryBtns;
+
+  const filterBtns = container.querySelectorAll('.filter-btn');
+
+  // filter items
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      // console.log(e.currentTarget.dataset.id); // target의 텍스트가 변경될 수 있으므로, dataset을 이용하는 것이 좋다.
+
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter((menuItem) => {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+
+      if (category === 'all') {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
 }
