@@ -1,3 +1,8 @@
+// get only unique categories - HARDEST ONE
+// iterate over categories return buttons
+// make sure to select buttons when they are available
+
+// items
 const menu = [
   {
     id: 1,
@@ -81,59 +86,93 @@ const menu = [
   },
 ];
 
-const sectionCenter = document.querySelector(".section-center");
+const categories = [];
 
-window.addEventListener("DOMContentLoaded", function () {
-  let displayMenu = menu.map(function (item) {
-    // console.log(item);
-
-    return `<article class="menu-item">
-          <img src=${item.img} alt=${item.title} class="photo" />
-          <div class="item-info">
-            <header>
-              <h4>${item.title}</h4>
-              <h4 class="price">$${item.price}</h4>
-            </header>
-            <p class="item-text">
-              ${item.desc}
-            </p>
-          </div>
-        </article>`;
-  });
-  displayMenu = displayMenu.join("");
-  // console.log(displayMenu);
-
-  sectionCenter.innerHTML = displayMenu;
+menu.forEach((item) => {
+  if(!categories.includes(item.category)) {
+    categories.push(item.category);
+  }
 });
 
-const btns = document.querySelectorAll('.filter-btn');
-// console.log(btns);
+// console.log(categories);
 
-btns.forEach((btn) => {
+const btnContainer = document.querySelector('.btn-container');
+let btns = [];
+
+// categories.forEach((item) => {
+//   btns.push(`
+//     <button class="filter-btn" type="button" data-id=${item}>
+//         ${item}
+//     </button>
+//     `);
+// });
+
+for (let i = 0; i < categories.length + 1; i++) {
+  let cat = '';
+
+  if (i == 0) {
+    cat = 'all';
+  } else {
+    cat = categories[i-1];
+  }
+
+  btns.push(`
+    <button class="filter-btn" type="button" data-id=${cat}>
+        ${cat}
+    </button>
+    `);
+}
+
+btns = btns.join('');
+btnContainer.innerHTML = btns;
+
+const sectionCenter = document.querySelector('.section-center');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+// load items
+window.addEventListener('DOMContentLoaded', () => {
+  displayMenuItems(menu);
+});
+
+// filter items
+filterBtns.forEach((btn) => {
   btn.addEventListener('click', (e) => {
-    console.log(e.currentTarget.innerText.toLowerCase());
+    // console.log(e.currentTarget.dataset.id); // target의 텍스트가 변경될 수 있으므로, dataset을 이용하는 것이 좋다.
 
-    const category = e.currentTarget.innerText.toLowerCase();
-
-    let categorizedMenu = menu.map((item) => {
-      if (item.category.toLowerCase() === category || category === 'all') {
-        return `<article class="menu-item">
-            <img src=${item.img} alt=${item.title} class="photo">
-           <div class="item-info">
-              <header>
-                <h4>${item.title}</h4>
-               <h4 class="price">$${item.price}</h4>
-              </header>
-              <p class="item-text">
-                ${item.desc}
-              </p>
-            </div>
-          </article>`;
+    const category = e.currentTarget.dataset.id;
+    const menuCategory = menu.filter((menuItem) => {
+      if (menuItem.category === category) {
+        return menuItem;
       }
     });
 
-    categorizedMenu = categorizedMenu.join("");
-
-    sectionCenter.innerHTML = categorizedMenu;
+    if (category === 'all') {
+      displayMenuItems(menu);
+    } else {
+      displayMenuItems(menuCategory);
+    }
   });
 });
+
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map((item) => {
+    return `<article class="menu-item">
+        <img src=${item.img} class="photo" alt=${item.title}>
+        <div class="item-info">
+          <header>
+            <h4>${item.title}</h4>
+            <h4 class="price">$${item.price}</h4>
+          </header>
+          <p class="item-text">
+            ${item.desc}
+          </p>
+        </div>
+      </article>`;
+
+    displayMenu = displayMenu.join("");
+    sectionCenter.innerHTML = displayMenu;
+  });
+
+  displayMenu = displayMenu.join("");
+  sectionCenter.innerHTML = displayMenu;
+}
