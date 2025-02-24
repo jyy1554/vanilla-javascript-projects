@@ -1,22 +1,25 @@
 const btns = document.querySelectorAll('.tab-btn');
-const contents = document.querySelectorAll('.content');
+const about = document.querySelector('.about');
+const articles = document.querySelectorAll('.content');
 
-btns.forEach((btn) => {
-    // console.log(btn.dataset.id);
+about.addEventListener('click', (e) => {
+    // console.log(e.target.dataset.id);
+    const id = e.target.dataset.id;
 
-    btn.addEventListener('click', (e) => {
+    if(id) {
+        // remove active from other buttons
         btns.forEach((btn) => {
             btn.classList.remove('active');
         });
-        
-        btn.classList.add('active');
 
-        for(let i = 0; i < contents.length; i++) {
-            if(contents[i].dataset.id === btn.dataset.id) {
-                contents[i].classList.add('active');
-            } else {
-                contents[i].classList.remove('active');
-            }
-        }
-    });
+        e.target.classList.add('active');
+
+        // hide other articles
+        articles.forEach((article) => {
+            article.classList.remove('active');
+        });
+
+        const element = document.getElementById(id);
+        element.classList.add('active');
+    }
 });
