@@ -1,44 +1,51 @@
-let pageNum = 0;
-
 const slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector('.prevBtn');
 const nextBtn = document.querySelector('.nextBtn');
 
-window.addEventListener('DOMContentLoaded', () => {
-    slides.forEach((slide, i) => {
-        slide.style.left = `${100 * i}%`;
-    });
+slides.forEach((slide, index) => {
+    slide.style.left = `${index * 100}%`;
+});
+
+let counter = 0;
+
+nextBtn.addEventListener('click', () => {
+    // console.log('click next');
+    counter++;
+    carousel();
 });
 
 prevBtn.addEventListener('click', () => {
     // console.log('click prev');
-    pageNum--;
-    showButtons(pageNum);
-
-    slides.forEach((slide) => {
-        slide.style.transform = `translateX(${-100 * pageNum}%)`;
-    });
+    counter--;
+    carousel();
 });
 
-nextBtn.addEventListener('click', () => {
-    // console.log('click next');
-    pageNum++;
-    showButtons(pageNum);
+function carousel() {
+    // working with slides
+    // if (counter === slides.length) {
+    //     counter = 0;
+    // }
+    // if (counter < 0) {
+    //     counter = slides.length - 1;
+    // }
 
-    slides.forEach((slide) => {
-        slide.style.transform = `translateX(${-100 * pageNum}%)`;
-    });  
-});
-
-function showButtons() {
-    if(pageNum >= slides.length - 1) {
-        pageNum = slides.length - 1;
-        nextBtn.style.display = 'none';
-    } else if(pageNum <= 0) {
-        pageNum = 0;
-        prevBtn.style.display = 'none';
-    } else {
+    // working with buttons
+    if (counter < slides.length - 1) {
         nextBtn.style.display = 'block';
-        prevBtn.style.display = 'block';
+    } else {
+        nextBtn.style.display = 'none';
     }
+
+    if (counter > 0) {
+        prevBtn.style.display = 'block';
+    } else {
+        prevBtn.style.display = 'none';
+    }
+
+    slides.forEach((slide) => {
+        slide.style.transform = `translateX(-${counter * 100}%)`;
+    });  
 }
+
+// 처음 로딩 시 prevBtn 안보이게 하려고
+prevBtn.style.display = 'none';
