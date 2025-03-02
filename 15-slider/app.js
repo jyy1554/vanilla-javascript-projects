@@ -4,6 +4,12 @@ const slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector('.prevBtn');
 const nextBtn = document.querySelector('.nextBtn');
 
+window.addEventListener('DOMContentLoaded', () => {
+    slides.forEach((slide, i) => {
+        slide.style.left = `${100 * i}%`;
+    });
+});
+
 prevBtn.addEventListener('click', () => {
     // console.log('click prev');
     pageNum--;
