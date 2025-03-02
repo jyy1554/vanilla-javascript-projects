@@ -11,19 +11,15 @@
 </head>
 
 <body>
-  <section>
-    <div class="section-center">
-      <div class="title">
-        <h3>tired of boring lorem ipsum?</h3>
-      </div>
-      <div class="lorem-form">
-        <label>paragraphs:</label>
-        <input id="input" type="number" placeholder="5" />
-        <button class="btn" type="button" onclick="getNumber()">generate</button>
-      </div>
-      <p class="result">
-      </p>
-    </div>
+  <section class="section-center">
+    <h3>tired of boring lorem ipsum?</h3>
+    <form class="lorem-form">
+      <label for="amount">paragraphs:</label>
+      <input type="number" name="amount" id="amount" placeholder="5" />
+      <button type="submit" class="btn">generate</button>
+    </form>
+    <p class="result">
+    </p>
   </section>
   <!-- javascript -->
   <script src="app.js"></script>

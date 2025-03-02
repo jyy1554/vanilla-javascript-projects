@@ -12,25 +12,51 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
   `Rutters Plate Fleet boom chandler Brethren of the Coast handsomely lookout marooned brigantine knave. Buccaneer gangway jack rum loot spyglass line Jack Tar fore gaff. Gaff topmast scuttle ballast swab draught measured fer yer chains dance the hempen jig Chain Shot yardarm.`,
 ];
 
-const input = document.getElementById('input');
+const form = document.querySelector('.lorem-form');
+const amount = document.getElementById('amount');
 const result = document.querySelector('.result');
 
-function getNumber() {
-  const number = input.value;
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-  result.innerHTML = '';
+  // input은 type을 number로 설정해도 항상 string임
+  const value = parseInt(amount.value); // parseInt를 쓰면 숫자가 아니거나 입력값이 없을 경우, NaN라고 뜸
+  const random = Math.floor(Math.random() * text.length);
+  console.log(typeof value, value);
 
-  if(number === '' || number >= 10) {
-    const randomNumber = Math.floor(Math.random() * 9); // 0 ~ 8
-    result.innerHTML = text[randomNumber];
-  } else if(number === 0) {
-    result.innerHTML = '';
+  // empty
+  // -1
+  // > 9
+  if(isNaN(value) || value <= 0 || value > 9) {
+    result.innerHTML = `<p class="result">${text[random]}</p>`;
   } else {
-    const items = text.slice(0, number);
-    items.forEach((item) => {
-      result.innerHTML += `<p>
-        ${item}
-        </p>`;
-    });
+    let tempText = text.slice(0, value);
+
+    tempText = tempText.map((item) => {
+      return `<p class="result">${item}</p>`;
+    })
+    .join('');
+
+    result.innerHTML = tempText;
   }
-}
+});
+
+// function getNumber() {
+//   const number = input.value;
+
+//   result.innerHTML = '';
+
+//   if(number === '' || number >= 10) {
+//     const randomNumber = Math.floor(Math.random() * 9); // 0 ~ 8
+//     result.innerHTML = text[randomNumber];
+//   } else if(number === 0) {
+//     result.innerHTML = '';
+//   } else {
+//     const items = text.slice(0, number);
+//     items.forEach((item) => {
+//       result.innerHTML += `<p>
+//         ${item}
+//         </p>`;
+//     });
+//   }
+// }
