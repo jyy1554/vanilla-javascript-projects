@@ -1,0 +1,101 @@
+body {
+    background-image: url("./images/bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Varela Round", sans-serif;
+}
+
+button {
+    font-family: "Varela Round", sans-serif;
+}
+
+button:hover {
+    background-color: lightslategray;
+    color: white;
+}
+
+img {
+    width: 100px;
+}
+
+h1 {
+    font-family: "Pacifico", cursive;
+    text-align: center;
+    font-size: 72px;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.start-button {
+    border: none;
+    border-radius: 30px;
+    width: 300px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    animation: beat 0.8s infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes beat {
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.game-box {
+    height: 400px;
+    text-align: center;
+}
+
+.game-box > * {
+    margin-bottom: 40px;
+}
+
+input {
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    font-size: 50px;
+    margin-right: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 20px;
+    height: 70px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+span {
+    font-size: 50px;
+}
+
+.score-box {
+    display: flex;
+    justify-content: center;
+}
+
+.score-item {
+    margin-right: 30px;
+}
