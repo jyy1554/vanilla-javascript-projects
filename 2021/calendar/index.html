@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Calendar Project</title>
+  </head>
+
+  <body>
+    <!-- Header Starts -->
+    <header>
+      <a href="index.html">Calendar</a>
+    </header>
+    <!-- Header Ends -->
+
+    <!-- Main Body Starts -->
+    <div class="today">
+      <h2 class="day">day</h2>
+      <h2 class="date">date</h2>
+    </div>
+
+    <div class="calendar-name">
+      <span class="month">MONTH</span>
+      <span class="year">9999</span>
+    </div>
+
+    <div class="calendar-section">
+      <span class="arrow before"><<</span>
+
+      <!-- 달력 Start -->
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>SUN</th>
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th>SAT</th>
+            </tr>
+          </thead>
+          <tbody class="calendar">
+          </tbody>
+        </table>
+      </div>
+      <!-- 달력 End -->
+
+      <span class="arrow after">>></span>
+    </div>
+
+    <!-- Main Body Ends -->
+    <script src="index.js"></script>
+  </body>
+</html>
