@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap 사용하기 위해 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Baseball Game</title>
+  </head>
+
+  <body onload = "console.log('Hi')">
+    <!-- Header Starts -->
+    <div class="header">
+      <a href="index.html">Let's play a Baseball Game!</a>
+    </div>
+    <!-- Header Ends -->
+
+    <!-- 야구게임 Start -->
+    <div class="game">
+      <div class="nth">
+        <!-- 텍스트 중간에 변하는 숫자가 있는 경우 -->
+        <p><span id="nth-num">1</span> of 10</p>
+      </div>
+
+      <div class="score">
+        <div class="strike">
+          <p>S: </p>
+          <p id="strike-score">0</p>
+        </div>
+        <div class="ball">
+          <p>B: </p>
+          <p id="ball-score">0</p>
+        </div>
+        <div class="out">
+          <p>O: </p>
+          <p id="out-score">0</p>
+        </div>
+      </div>
+
+      <div class="blanks">
+        <!-- input에는 숫자가 들어가므로 type을 number로 바꾸어줌 -->
+        <input type="text" id="input1" maxlength="1">
+        <input type="text" id="input2" maxlength="1">
+        <input type="text" id="input3" maxlength="1">
+      </div>
+
+      <div class="buttons">
+        <button type="submit" class="enter-btn btn btn-primary btn-lg">
+          Enter
+        </button>
+        <button type="submit" class="restart-btn btn btn-secondary btn-lg">
+          Restart
+        </button>
+      </div>
+    </div>
+    <!-- 야구게임 End -->
+
+    <script src="index.js"></script>
+  </body>
+</html>

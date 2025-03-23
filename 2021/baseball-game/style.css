@@ -1,0 +1,99 @@
+body {
+  background-image: url("./images/bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* 전체 화면 크기를 정해주기 위해 */
+  height: 100vh;
+  font-family: "Varela Round", sans-serif;
+  font-weight: bold;
+}
+
+.header {
+  font-family: "Pacifico", sans-serif;
+
+  display: flex;
+  justify-content: center;
+
+  /* 제목이 들어갈 상자를 만들어주기 위해 */
+  /* magin을 조절할 경우 body height이 화면을 넘어가버림 */
+  padding-top: 70px;
+  padding-bottom: 35px;
+}
+
+a {
+  font-size: 60px;
+  text-decoration: none;
+  color: Black;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 위아래 어느정도 간격을 갖고 요소마다 간격 갖게하기 위해 */
+  justify-content: space-around;
+
+  /* 게임이 들어갈 화면 크기를 제한해주기 위해 */
+  height: 60vh;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+.nth {
+  font-size: 60px;
+  font-weight: bold;
+  text-decoration: underline;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.score {
+  display: flex;
+  width: 25vw;
+  justify-content: space-evenly;
+
+  font-size: 50px;
+}
+
+.strike,
+.ball,
+.out {
+  display: flex;
+}
+
+.blanks {
+  width: 22vw;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  height: 100px;
+  width: 100px;
+  margin: 0 5px;
+
+  background: transparent;
+  /* 1px solid 안해주면 input칸에 그림자가 적용됨 */
+  border: 2px solid lightsteelblue;
+  border-radius: 15px;
+
+  font-size: 100px;
+  text-align: center;
+}
+
+.buttons {
+  width: 400px;
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 130px;
+  margin: 0 5px;
+}
