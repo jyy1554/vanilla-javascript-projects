@@ -1,0 +1,54 @@
+/* Header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 19px;
+  align-items: center;
+}
+.header a {
+  text-decoration: none;
+  color: black;
+  margin-right: 18px;
+  font-size: 13px;
+}
+.header a:hover {
+  text-decoration: underline;
+}
+.header-apps {
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+/* Body */
+.google-logo {
+  text-align: center;
+  margin-top: 170px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgrey;
+  height: 43px;
+  padding: 10px 20px;
+  border-radius: 500px;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.search:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+.keyboard-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.mic-icon {
+  cursor: pointer;
+}
+.search input {
+  flex: 1;
+  padding: 0px 9px;
+  border: none;
+  outline: none;
+}
